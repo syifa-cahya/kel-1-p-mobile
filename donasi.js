@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function App() {
+export default function donasi() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
