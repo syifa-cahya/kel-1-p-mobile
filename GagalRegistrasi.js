@@ -2,145 +2,129 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-const GagalRegistrasi = () => {
+export default function App() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.card}>
-        <Image
-          source={{ uri: 'https://storage.googleapis.com/a1aa/image/jffJIztpxgu2skojGFy0dcNEKzxlgf8iKJBFXL1VYEHySuOnA.jpg' }}
-          style={styles.image}
-        />
-        <View style={styles.header}>
-          <Text style={styles.headerText}>
-            Lantai 2 <Text style={styles.headerTextBlue}>Masjid</Text>
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <FontAwesome name="chevron-left" size={24} color="gray" />
+        <Text style={styles.headerText}>
+          Lantai 2 <Text style={styles.headerTextBlue}>Masjid</Text>
+        </Text>
+        <View />
+      </View>
+      <Image
+        source={{ uri: 'https://storage.googleapis.com/a1aa/image/Pd8y44OtwRK1B9fIW76NdaykBtFryv661XHtNfaNsMMdoanTA.jpg' }}
+        style={styles.image}
+      />
+      <View style={styles.overlayContainer}>
+        <View style={styles.overlay}>
+          <FontAwesome name="times-circle" size={64} color="red" />
+          <Text style={styles.overlayTitle}>
+            Slot <Text style={styles.overlayTitleRed}>Not Found</Text>
+          </Text>
+          <Text style={styles.overlayText}>Yesya Najwa</Text>
+          <Text style={styles.overlayText}>+62 823 7782 1413</Text>
+          <View style={styles.infoContainer}>
+            <FontAwesome name="calendar" size={24} color="white" />
+            <Text style={styles.infoText}>1 Mei 2024 | 10:30 PM</Text>
+          </View>
+          <View style={styles.infoContainer}>
+            <FontAwesome name="users" size={24} color="white" />
+            <Text style={styles.infoText}>200 Guests</Text>
+          </View>
+          <Text style={styles.overlayMessage}>
+            Your room failed to book! Please create new reservations for other An-Nabawi mosque rooms with our application
           </Text>
         </View>
-        <View style={styles.content}>
-          <View style={styles.modal}>
-            <FontAwesome name="times-circle" size={64} color="red" style={styles.icon} />
-            <Text style={styles.modalTitle}>
-              Slot <Text style={styles.modalTitleRed}>Not Found</Text>
-            </Text>
-            <Text style={styles.modalText}>Yesya Najwa</Text>
-            <Text style={styles.modalSubText}>+62 823 7782 1413</Text>
-            <View style={styles.infoRow}>
-              <FontAwesome name="calendar" size={16} color="blue" style={styles.infoIcon} />
-              <Text style={styles.infoText}>1 Mei 2024 | 10:30 PM</Text>
-            </View>
-            <View style={styles.infoRow}>
-              <FontAwesome name="users" size={16} color="blue" style={styles.infoIcon} />
-              <Text style={styles.infoText}>200 Guests</Text>
-            </View>
-            <Text style={styles.modalMessage}>
-              Your room failed to book! Please create new reservations for other An-Nabawi mosque rooms with our application
-            </Text>
-          </View>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Back</Text>
-          </TouchableOpacity>
-        </View>
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1,
     backgroundColor: '#f3f4f6',
   },
-  card: {
-    width: '90%',
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
     backgroundColor: 'white',
-    borderRadius: 10,
-    overflow: 'hidden',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  headerText: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  headerTextBlue: {
+    color: '#3b82f6',
   },
   image: {
     width: '100%',
     height: 200,
   },
-  header: {
-    position: 'absolute',
-    top: 10,
-    left: 10,
+  overlayContainer: {
+    position: 'relative',
+    marginTop: -100,
+    alignItems: 'center',
   },
-  headerText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#1f2937',
-  },
-  headerTextBlue: {
-    color: '#3b82f6',
-  },
-  content: {
+  overlay: {
+    backgroundColor: 'rgba(31, 41, 55, 0.9)',
     padding: 20,
-  },
-  modal: {
-    backgroundColor: '#1f2937',
     borderRadius: 10,
-    padding: 20,
     alignItems: 'center',
+    width: '90%',
   },
-  icon: {
-    marginBottom: 10,
-  },
-  modalTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  overlayTitle: {
+    fontSize: 24,
+    fontWeight: '600',
     color: 'white',
-    marginBottom: 10,
-  },
-  modalTitleRed: {
-    color: 'red',
-  },
-  modalText: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: 'white',
-    marginBottom: 5,
-  },
-  modalSubText: {
-    fontSize: 14,
-    color: 'white',
-    marginBottom: 20,
-  },
-  infoRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  infoIcon: {
-    marginRight: 5,
-  },
-  infoText: {
-    fontSize: 14,
-    color: 'white',
-  },
-  modalMessage: {
-    fontSize: 14,
-    color: 'white',
-    textAlign: 'center',
     marginTop: 10,
   },
-  button: {
+  overlayTitleRed: {
+    color: 'red',
+  },
+  overlayText: {
+    color: 'white',
+    marginTop: 5,
+  },
+  infoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  infoText: {
+    color: 'white',
+    marginLeft: 10,
+  },
+  overlayMessage: {
+    color: 'white',
     marginTop: 20,
+    textAlign: 'center',
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  button: {
     backgroundColor: '#3b82f6',
     paddingVertical: 10,
+    paddingHorizontal: 20,
     borderRadius: 10,
-    alignItems: 'center',
   },
   buttonText: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
   },
 });
-
-export default App;
