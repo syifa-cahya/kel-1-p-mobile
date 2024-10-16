@@ -2,11 +2,11 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
 import { FontAwesome, Feather } from '@expo/vector-icons';
 
-export default function FormReservasi() {
+export default function App() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <FontAwesome name="chevron-left" size={24} color="#1E90FF" />
+        <Feather name="chevron-left" size={24} color="#1E90FF" />
         <Text style={styles.backText}>Back</Text>
       </View>
       <View style={styles.infoContainer}>
@@ -19,7 +19,7 @@ export default function FormReservasi() {
           <Text style={styles.infoText}>200 Guests</Text>
         </View>
         <View style={styles.infoItem}>
-          <Feather name="umbrella" size={24} color="#1E90FF" />
+          <FontAwesome name="umbrella-beach" size={24} color="#1E90FF" />
           <Text style={styles.infoText}>Indoor</Text>
         </View>
       </View>
@@ -30,12 +30,14 @@ export default function FormReservasi() {
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Phone</Text>
-          <View style={styles.phoneInputContainer}>
-            <Image
-              source={{ uri: 'https://storage.googleapis.com/a1aa/image/ULdvsR7zJMIZLZRa5oLOpXac6OwpUA0vfA4C6CuiEVkTeWnTA.jpg' }}
-              style={styles.flag}
-            />
-            <Text style={styles.phoneCode}>+62</Text>
+          <View style={styles.phoneContainer}>
+            <View style={styles.phonePrefix}>
+              <Image
+                source={{ uri: 'https://storage.googleapis.com/a1aa/image/SgoGupuVYWoVFhBUuFIgv2ZcpfPNeQNb6kfzKDL7u8yqJ1OnA.jpg' }}
+                style={styles.flag}
+              />
+              <Text style={styles.phoneText}>+62</Text>
+            </View>
             <TextInput style={styles.phoneInput} value="823 7782 1413" />
           </View>
         </View>
@@ -55,9 +57,8 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: '#F3F4F6',
-    alignItems: 'center',
-    justifyContent: 'center',
     padding: 16,
+    alignItems: 'center',
   },
   header: {
     flexDirection: 'row',
@@ -67,13 +68,14 @@ const styles = StyleSheet.create({
   backText: {
     marginLeft: 8,
     color: '#1E90FF',
-    fontWeight: '500',
+    fontWeight: '600',
   },
   infoContainer: {
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
     paddingBottom: 16,
     marginBottom: 16,
+    width: '100%',
   },
   infoItem: {
     flexDirection: 'row',
@@ -92,44 +94,49 @@ const styles = StyleSheet.create({
   },
   label: {
     color: '#4B5563',
-    marginBottom: 4,
+    marginBottom: 8,
   },
   input: {
     borderWidth: 1,
     borderColor: '#D1D5DB',
-    borderRadius: 8,
-    padding: 12,
+    borderRadius: 4,
+    padding: 8,
     backgroundColor: '#FFFFFF',
   },
-  phoneInputContainer: {
+  phoneContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#D1D5DB',
-    borderRadius: 8,
-    padding: 12,
-    backgroundColor: '#FFFFFF',
+    borderRadius: 4,
+  },
+  phonePrefix: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 8,
   },
   flag: {
     width: 20,
     height: 20,
     marginRight: 8,
   },
-  phoneCode: {
+  phoneText: {
     color: '#4B5563',
-    marginRight: 8,
   },
   phoneInput: {
     flex: 1,
+    padding: 8,
+    borderLeftWidth: 1,
+    borderLeftColor: '#D1D5DB',
   },
   button: {
     backgroundColor: '#1E90FF',
     padding: 16,
-    borderRadius: 8,
+    borderRadius: 4,
     alignItems: 'center',
   },
   buttonText: {
     color: '#FFFFFF',
-    fontWeight: '500',
+    fontWeight: '600',
   },
 });
